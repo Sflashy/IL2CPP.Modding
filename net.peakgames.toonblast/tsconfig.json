@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "commonjs",
+    "rootDir": "src",
+    "outDir": "dist",
+    "baseUrl": "./src",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@hooks/*": ["hooks/*"],
+      "@helpers/*": ["helpers/*"]
+    }
+  },
+  "include": ["src"]
+}

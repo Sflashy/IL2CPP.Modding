@@ -1,0 +1,28 @@
+{
+  "name": "toonblast",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch",
+    "spawn": "frida -U -N net.peakgames.toonblast -l dist/agent.js",
+    "dev:frida": "nodemon --watch dist/agent.js --exec \"npm run spawn\"",
+    "dev": "concurrently -k -n \"ESBUILD,FRIDA\" -c \"cyan,magenta\" \"npm run watch\" \"npm run dev:frida\""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/frida-gum": "^18.8.2",
+    "@types/node": "^22.15.3",
+    "concurrently": "^9.1.2",
+    "esbuild": "^0.25.4",
+    "esbuild-plugin-alias": "^0.2.1",
+    "frida-compile": "^16.4.2",
+    "frida-il2cpp-bridge": "^0.11.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1"
+  }
+}
