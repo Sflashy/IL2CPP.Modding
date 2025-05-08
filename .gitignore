@@ -1,0 +1,24 @@
+# Output directories
+dist/
+node_modules/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Logs
+*.log
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# OS-specific
+.DS_Store
+
+# Env files
+.env
+
+# other
+com.gamehivecorp.taptitans2/
+com.migoigames.boxheadzombiesmustdie/
+/.vs
