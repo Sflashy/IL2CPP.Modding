@@ -1,13 +1,13 @@
 # IL2CPP.Modding
 
-A Node.js application written in TypeScript, used for injecting Frida scripts into modded games. Currently, it supports modding the `Toon Blast` Android game.
+A Node.js application written in TypeScript, used for injecting Frida scripts into modded games. Currently, it supports modding the `Toon Blast, Arrow Quest` Android game.
 
 ## 🚀 Installation
 
 Clone the repository and install the dependencies:
 
 ```bash
-npm install
+yarn install
 ```
 
 ## 🛠 Development
@@ -15,13 +15,13 @@ npm install
 To automatically recompile TypeScript files on changes:
 
 ```bash
-npm run watch
+yarn watch
 ```
 
 To manually compile the project:
 
 ```bash
-npm run build
+yarn build
 ```
 
 ## ▶️ Running the Application
@@ -29,7 +29,7 @@ npm run build
 After building, you can inject the script using Frida:
 
 ```bash
-npm run spawn
+yarn spawn
 ```
 
 ## 📁 Project Structure
@@ -48,21 +48,27 @@ npm run spawn
 
 - `build` – Compiles TypeScript files using `build.js` and `esbuild`.
 - `watch` – Runs the build script in watch mode for continuous compiling.
-- `spawn` – Uses Frida to inject the compiled script (`dist/agent.js`) into the `net.peakgames.toonblast` app on a connected device.
-- `dev:frida` – Watches the `dist/agent.js` file using `nodemon` and reinjects it automatically via Frida on changes.
-- `dev` – Runs both `watch` and `dev:frida` concurrently for seamless development experience.
+- `spawn` – Uses Frida to inject the compiled script (`dist/agent.js`) into the `game identifier` app on a connected device.
 
 ## 🕹️ Game Support: Toon Blast
 
 Currently, the repository supports modding the `Toon Blast` Android game (package name: `net.peakgames.toonblast`). To mod the game, the following command will inject the compiled Frida script into the game:
 
 ```bash
-npm run spawn
+yarn spawn
+```
+
+## 🕹️ Game Support: Arrow Quest
+
+Currently, the repository supports modding the `Arrow Quest` Android game (package name: `com.Wispwood.ArrowQuest`). To mod the game, the following command will inject the compiled Frida script into the game:
+
+```bash
+yarn spawn
 ```
 
 ### 🛠 How it Works
 
-- `spawn` runs the Frida tool with the provided Frida script (`dist/agent.js`) targeting the `Toon Blast` game.
+- `spawn` runs the Frida tool with the provided Frida script (`dist/agent.js`) targeting the game.
 - The script can interact with the game's methods and modify its behavior as required.
 
 ## 🔧 Future Game Support

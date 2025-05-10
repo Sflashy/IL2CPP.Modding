@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@il2cpp/core/*": ["core/*"]
+    }
+  },
+
+  "references": [
+    { 
+      "path": "core" 
+    }
+  ]
+}

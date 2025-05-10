@@ -1,0 +1,22 @@
+{
+  "name": "il2cpp.modding",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Sflashy/IL2CPP.Modding.git",
+  "author": "Sflashy <github@sflashy.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "core",
+    "apps/*"
+  ],
+  "dependencies": {
+    "@types/frida-gum": "^18.8.2",
+    "@types/node": "^22.15.3",
+    "esbuild": "^0.25.4",
+    "typescript": "^5.8.3",
+    "esbuild-plugin-alias": "^0.2.1",
+    "frida-compile": "^16.4.2",
+    "frida-il2cpp-bridge": "^0.11.0"
+  }
+}
