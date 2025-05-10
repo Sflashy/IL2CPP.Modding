@@ -36,8 +36,13 @@ yarn spawn
 
 ```plaintext
 .
-├── src/                # TypeScript source files
-├── dist/               # Compiled JavaScript output
+├── apps/
+|   ├── com.template.game
+|   |   ├── src/                # TypeScript source files
+|   |   ├── dist/               # Compiled JavaScript output
+├── core/
+|   ├── helpers/
+|   ├── node_modules/
 ├── node_modules/       # Installed dependencies
 ├── package.json        # Project configuration
 ├── tsconfig.json       # TypeScript compiler options
