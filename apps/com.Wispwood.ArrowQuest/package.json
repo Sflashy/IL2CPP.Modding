@@ -1,0 +1,13 @@
+{
+  "name": "arrowquest",
+  "version": "1.0.0",
+  "main": "dist/agent.js",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch",
+    "spawn": "frida -U -N com.Wispwood.ArrowQuest -l dist/agent.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
