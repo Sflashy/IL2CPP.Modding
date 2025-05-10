@@ -1,0 +1,13 @@
+{
+  "name": "toonblast",
+  "version": "1.0.0",
+  "main": "dist/agent.js",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch",
+    "spawn": "frida -U -N net.peakgames.toonblast -l dist/agent.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
