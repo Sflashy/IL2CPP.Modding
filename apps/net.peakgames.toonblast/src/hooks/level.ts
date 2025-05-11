@@ -24,8 +24,8 @@ export function registerLevelHooks(assembly: Il2Cpp.Image) {
     overrideDifficulty(assembly, Difficulty.SUPER_HARD);
     overrideGoalCount(assembly, 0);
     overrideMoveCount(assembly, 50);
-    overrideRewards(assembly, 640509);
-    //instantlyCompleteLevel(assembly);
+    overrideRewards(assembly, 10000);
+    instantlyCompleteLevel(assembly);
     logHook("level hooks registered");
 }
 
@@ -47,6 +47,8 @@ function instantlyCompleteLevel(assembly: Il2Cpp.Image) {
         this.method("BEOMCOEAOOC").invoke();
         this.method("OBIDBHGHODG").invoke();
         this.method("DKNIJNHDKDM").invoke();
+        //THIS ONE IS LEVEL DO NOT PASS THE 10551
+        //this.field("CKINCJLGCPG").value = 10549;
         const caravanTopLevel = this.field("EEOHMEMMHIA").value as unknown as Il2Cpp.Class;
         caravanTopLevel.method("StopLast5Moves").invoke();
             
@@ -56,11 +58,7 @@ function instantlyCompleteLevel(assembly: Il2Cpp.Image) {
     }
     encryptedClass.method("FPKINMDGIEK").implementation = function () 
     {
-        //first one is level
-        this.field("CKINCJLGCPG").value = 640509;
-        this.field("PHNAPBLBMPP").value = 640509;
-        this.field("GDKODLBNIHL").value = 640509;
-        this.field("FBAJPLDPADC").value = 640509;
+/*      this.field("FBAJPLDPADC").value = 10549;
         this.field("PKAEBHDBOEP").value = 640509;
         this.field("CHADCIIJEJD").value = 640509;
         this.field("OMAJCOLBAFE").value = 640509;
@@ -70,7 +68,7 @@ function instantlyCompleteLevel(assembly: Il2Cpp.Image) {
         this.field("ECPABEPNBBK").value = 640509;
         this.field("OBCPBLOGGPL").value = 640509;
         this.field("AEGJGJBHLCA").value = 640509;
-        this.field("LFLPHMHPAMP").value = 640509;
+        this.field("LFLPHMHPAMP").value = 640509; */
         this.method("FPKINMDGIEK").invoke();
         logInfo("DKNIJNHDKDM");
         //return this.method("FJGLANDGNII").invoke();

@@ -1,6 +1,6 @@
 # IL2CPP.Modding
 
-A Node.js application written in TypeScript, used for injecting Frida scripts into modded games. Currently, it supports modding the `Toon Blast, Arrow Quest` Android game.
+A Node.js application written in TypeScript, used for injecting Frida scripts into modded games. Currently, it supports modding the `Toon Blast, Arrow Quest, Pocket Chess` Android game.
 
 ## 🚀 Installation
 
@@ -71,7 +71,18 @@ Currently, the repository supports modding the `Arrow Quest` Android game (packa
 yarn spawn
 ```
 
-### 🛠 How it Works
+## 🕹️ Game Support: Pocket Chess
+
+Currently, the repository supports modding the `Pocket Chess` Android game (package name: `com.dkxqzbfkjt.pocketchess`). To mod the game, the following command will inject the compiled Frida script into the game:
+
+```bash
+yarn spawn
+```
+### ✨ Features
+* No Ad
+* Unlimited Coins
+
+## 🛠 How it Works
 
 - `spawn` runs the Frida tool with the provided Frida script (`dist/agent.js`) targeting the game.
 - The script can interact with the game's methods and modify its behavior as required.
