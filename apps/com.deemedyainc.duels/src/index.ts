@@ -12,6 +12,4 @@ Il2Cpp.perform(() => {
 
     // Register hooks
     registerShopHooks(assembly);
-
-    //traceNamespace(assembly, "Galapagos.Duels.FreeShop", true);
 });
