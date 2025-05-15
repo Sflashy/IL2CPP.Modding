@@ -24,6 +24,23 @@ export async function traceAssembly(assemblyName: string, verbose : boolean = fa
 }
 
 
+/**
+ * Traces all classes within a specified namespace in a given assembly.
+ *
+ * @param assembly - The `Il2Cpp.Image` instance representing the assembly to search for classes.
+ * @param namespace - The namespace to filter classes by.
+ * @param verbose - Optional. If `true`, enables verbose tracing. Defaults to `false`.
+ * @param excludeClasses - Optional. An array of class names to exclude from tracing. Defaults to an empty array.
+ *
+ * @remarks
+ * This function iterates through all classes in the provided assembly and traces those
+ * that belong to the specified namespace, excluding any classes listed in `excludeClasses`.
+ * If a class does not have a namespace or its namespace does not match the specified one,
+ * it will be skipped.
+ *
+ * @throws
+ * Any errors encountered during the tracing of individual classes are caught and ignored.
+ */
 export function traceNamespace(assembly: Il2Cpp.Image, namespace: string, verbose : boolean = false, excludeClasses: string[] = []) {
     assembly.classes.forEach((c) => 
     {

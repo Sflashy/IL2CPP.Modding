@@ -35,3 +35,14 @@ export function logEntry(msg: string): void {
 export function logHook(msg: string): void {
     console.log(`[${getTime()}] ${GRAY}[HOOK]${RESET} ${msg}`);
 }
+
+export function logDictionary(dictInstance: Il2Cpp.Object) {
+    const keys : any = dictInstance.method("get_Keys").invoke();
+    const enumerator = keys.method("GetEnumerator").invoke();
+
+    while (enumerator.method("MoveNext").invoke()) {
+        const key = enumerator.method("get_Current").invoke();
+        const value = dictInstance.method("get_Item").invoke(key);
+        logInfo(`→ ${key}: ${value}`);
+    }
+}
