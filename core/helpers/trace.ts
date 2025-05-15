@@ -23,6 +23,19 @@ export async function traceAssembly(assemblyName: string, verbose : boolean = fa
     Il2Cpp.trace(verbose).assemblies(assembly).and().attach();
 }
 
+
+export function traceNamespace(assembly: Il2Cpp.Image, namespace: string, verbose : boolean = false, excludeClasses: string[] = []) {
+    assembly.classes.forEach((c) => 
+    {
+        try {
+            if(c.namespace == undefined || c.namespace != namespace || excludeClasses.includes(c.name)) return;
+            traceClass(assembly, [c.namespace + '.' + c.name], verbose);
+        } catch (error) {
+        }
+
+    });
+}
+
 export function traceMethod(assembly: Il2Cpp.Image, className: string, methodName: string, verbose : boolean = false) {
     logInfo(`Tracing ${className}.${methodName}`);
     Il2Cpp.trace(verbose)
