@@ -7,6 +7,4 @@ export function registerShopHooks(assembly: Il2Cpp.Image)
     logInfo("shop hooks registered");
     // Override the availability of shop items
     overrideItemAvailability(assembly);
-
-    traceNamespace(assembly, "Galapagos.Duels.Response", true);
 }
