@@ -1,0 +1,13 @@
+{
+  "name": "duels",
+  "version": "1.0.0",
+  "main": "dist/agent.js",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch",
+    "spawn": "frida -U -N com.deemedyainc.duels -l dist/agent.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
