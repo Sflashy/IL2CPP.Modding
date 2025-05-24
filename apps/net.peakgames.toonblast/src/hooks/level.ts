@@ -1,5 +1,6 @@
 import { logHook, logInfo } from "@il2cpp/core/helpers/logger";
 import { getClass, getMethod } from "@il2cpp/core/helpers/resolver";
+import { findObjectOfType } from "@il2cpp/core/helpers/unity";
 import { overrideDifficulty } from "@modifiers/difficulty";
 import { overrideGoalCount } from "@modifiers/goal";
 import { overrideMoveCount } from "@modifiers/move";
@@ -22,13 +23,16 @@ export enum Difficulty {
 
 export function registerLevelHooks(assembly: Il2Cpp.Image) {
     overrideDifficulty(assembly, Difficulty.SUPER_HARD);
-    overrideGoalCount(assembly, 0);
-    overrideMoveCount(assembly, 50);
-    overrideRewards(assembly, 10000);
+    //overrideGoalCount(assembly, 0);
+    //overrideMoveCount(assembly, 50);
+    overrideRewards(assembly, 1000);
     instantlyCompleteLevel(assembly);
+    increaseLevelOvertime(assembly);
     logHook("level hooks registered");
 }
 
+
+let levelInstance: any;
 //ui change triggers this method | not implemented yet
 function increaseLevelOvertime(assembly: Il2Cpp.Image) {
     const encryptedClass = getClass(assembly, "NBGJPOIEAHE");
@@ -36,6 +40,9 @@ function increaseLevelOvertime(assembly: Il2Cpp.Image) {
     encryptedMethod.implementation = function (a,b)
     {
         this.method("LMBGPFDCHIH").invoke(a,b);
+        let dialog : Il2Cpp.String = a as unknown as Il2Cpp.String;
+        if(levelInstance == null || !dialog.content?.startsWith("WinDialog")) return;
+        levelInstance.method("DKNIJNHDKDM").invoke();
     }
 }
 
@@ -44,6 +51,7 @@ function instantlyCompleteLevel(assembly: Il2Cpp.Image) {
     const encryptedMethod = getMethod(encryptedClass, "Save");
     encryptedMethod.implementation = function (data : any) {
         //triggers win screen    
+        levelInstance = this;
         this.method("BEOMCOEAOOC").invoke();
         this.method("OBIDBHGHODG").invoke();
         this.method("DKNIJNHDKDM").invoke();
@@ -56,22 +64,21 @@ function instantlyCompleteLevel(assembly: Il2Cpp.Image) {
         //this.method("FPKINMDGIEK").invoke();
         //this.method("EOMMIFOFDNN").invoke();
     }
-    encryptedClass.method("FPKINMDGIEK").implementation = function () 
+/*       encryptedClass.method("FPKINMDGIEK").implementation = function () 
     {
-/*      this.field("FBAJPLDPADC").value = 10549;
-        this.field("PKAEBHDBOEP").value = 640509;
-        this.field("CHADCIIJEJD").value = 640509;
-        this.field("OMAJCOLBAFE").value = 640509;
-        this.field("JOOJJJPFHNE").value = 640509;
-        this.field("KMNKIPFCPMK").value = 640509;
-        this.field("MFDGABBCBOE").value = 640509;
-        this.field("ECPABEPNBBK").value = 640509;
-        this.field("OBCPBLOGGPL").value = 640509;
-        this.field("AEGJGJBHLCA").value = 640509;
-        this.field("LFLPHMHPAMP").value = 640509; */
+        this.field("FBAJPLDPADC").value = 500;
+        this.field("PKAEBHDBOEP").value = 500;
+        this.field("CHADCIIJEJD").value = 500;
+        this.field("OMAJCOLBAFE").value = 500;
+        this.field("JOOJJJPFHNE").value = 500;
+        this.field("KMNKIPFCPMK").value = 500;
+        this.field("MFDGABBCBOE").value = 500;
+        this.field("ECPABEPNBBK").value = 500;
+        this.field("OBCPBLOGGPL").value = 500;
+        this.field("AEGJGJBHLCA").value = 500;
+        this.field("LFLPHMHPAMP").value = 500;
         this.method("FPKINMDGIEK").invoke();
         logInfo("DKNIJNHDKDM");
-        //return this.method("FJGLANDGNII").invoke();
-    }
+    }  */ 
 }
 

@@ -10,8 +10,8 @@ import { getClass, getMethod } from "@il2cpp/core/helpers/resolver";
 export function overrideRewards(image: Il2Cpp.Image, rewardCount: number) {
     const reward = getClass(image, "Assets.Scripts.DataHelpers.Reward");
     const encryptedMethod = getMethod(reward, ".ctor");
-    encryptedMethod.implementation = function (type: any, _amount: any, unit: any) {
+    encryptedMethod.implementation = function (type: any, _amount: any, unit: any, extraData: any) {
         //logInfo(`Reward Overridden: ${type} ${_amount} -> ${rewardCount}`);
-        this.method(".ctor").invoke(type, rewardCount, unit);
+        this.method(".ctor").invoke(type, rewardCount, unit, extraData);
     };
 }
